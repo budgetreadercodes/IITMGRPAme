@@ -1,0 +1,92 @@
+# Note this prefix code is to verify that you are not using any for loops in this exercise. This won't affect any other functionality of the program.
+with open(__file__) as f:
+    content = f.read().split("# <eoi>")[2]
+if "for " in content:
+    print("You should not use for loop or the word for anywhere in this exercise")
+
+# This is the first line of the exercise
+task = input()
+# <eoi>
+
+if task == "sum_until_0":
+    total = 0
+    n = int(input())
+    while (n != 0): # the terminal condition
+        total = total + n # add n to the total
+        n = int(input())# take the next n form the input
+    print(total)
+
+elif task == "total_price":
+    total_price = 0
+    while True: # repeat forever since we are breaking inside
+        line = input()
+        if line == 'END': # The terminal condition
+            break
+        quantity, price = line.split() # split uses space by default
+        quantity, price = int(quantity), int(price) # convert to ints
+        total_price = total_price + (quantity * price) # accumulate the total price
+    print(total_price)
+    
+elif task == "only_ed_or_ing":
+    word_input = input()
+    while (word_input!="stop"):
+        if word_input.endswith('ed') or word_input.endswith('ing'):
+            print (word_input)
+        else:
+            pass
+        word_input = input()
+
+elif task == "reverse_sum_palindrome":
+    n = int(input())
+    while (n != -1):
+        if n>0:
+            nrev = int((str(n))[::-1]) # Corrected slicing to reverse the string
+            sum = n + nrev
+    # The line below also had an incorrect slice, it should be [::-1] to reverse the sum
+            rev_sum = int((str(sum))[::-1]) # Corrected slicing to reverse the string
+            if (sum == rev_sum):
+                print(n)
+            else:
+                pass
+        else:
+            pass
+        n = int(input()) # Added input inside the loop to get new value of n
+
+elif task == "double_string":
+    line = str(input())
+    while(line!=""):
+        showline = line * 2
+        print (showline)
+        line = str(input())
+
+elif task == "odd_char":
+    string = input()
+    while True:
+        print (string[::2], end =" ")
+        string = input()
+        if (string.endswith(".")):
+            print (string[::2], end =" ")
+            break
+
+elif task == "only_even_squares":
+    n = input()
+    while (n != "NAN"):
+        int_n = int(n)
+        if (int_n % 2 == 0):
+            square = int_n ** 2
+            print (square)
+        else:
+            pass
+        n = input()
+
+elif task == "only_odd_lines":
+    line = input()
+    count = 1
+    showline = ""
+    while (line!="END"):
+        if count % 2 != 0:
+            showline = line + "\n" + showline
+        line = input()
+        count = count + 1
+    print (showline)
+    
