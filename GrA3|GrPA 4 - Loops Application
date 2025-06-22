@@ -1,0 +1,78 @@
+# this is to ensure that you cannot use the built in any, all and min function for this exercise but you can use it in the OPPEs.
+any = None 
+all = None
+min = None 
+
+task = input()
+
+if task == "factors":
+    n = int(input())
+    for i in range (1, n+1):
+        if n%i==0:
+            print (i)
+            
+elif task == "find_min":
+    #Take n numbers from the input and print the minimum number.
+    num = int(input()) #specify number of inputs to be accepted
+    i = 0
+    mini = 999999999999999
+    while i<num:
+        n = int(input())
+        if (n<mini):
+            mini = n
+        i += 1
+    print(mini)
+            
+elif task == "prime_check":
+    n = int(input())
+    is_prime = True
+    i = 2
+    if n<1:
+      print("negative numbers and 0 are not prime")
+    else:
+      while i<n:
+        if n%i==0:
+          is_prime = False
+          break
+        i = i + 1
+      print(is_prime)
+
+elif task == "is_sorted":
+    s = input()
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+    t = 0
+    for char in s:
+      if alphabet.index(char)>=t:
+        is_sorted = True
+        t = alphabet.index(char)
+      else:
+        is_sorted = False
+        break
+    print(is_sorted)
+    
+elif task == "any_true":
+    numofn = int(input())
+    flag = False
+    for i in range(numofn):
+      n = int(input())
+      if n%3==0:
+        flag = True
+    print (flag)
+
+elif task == "manhattan":
+    direction = input()
+    x1 = 0
+    y1 = 0
+    x2 = 0
+    y2 = 0
+    while direction!="STOP":
+        if direction == "UP":
+            y2 += 1
+        if direction == "DOWN":
+            y2 -= 1
+        if direction == "LEFT":
+            x2 -= 1
+        if direction == "RIGHT":
+            x2 += 1
+        direction = input()
+    print (abs(abs(x2-x1) + abs(y2-y1)))
