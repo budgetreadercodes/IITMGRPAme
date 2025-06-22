@@ -1,0 +1,75 @@
+# Note this prefix code is to verify that you are not using any for loops in this exercise. This won't affect any other functionality of the program.
+with open(__file__) as f:
+    content = f.read().split("# <eoi>")[2]
+if "while " in content:
+    print("You should not use while loop or the word while anywhere in this exercise")
+
+# your code should not use more than 7 for loops 
+# assuming one for loop per problem
+if content.count("for ")>7:
+    print("You should not use more than 7 for loops")
+
+# This is the first line of the exercise
+task = input()
+# <eoi>
+
+if task == 'factorial':
+    n = int(input())
+    fact_n = 1
+    if n < 0:
+        print ("Invalid")
+    elif n == 0:
+        print (fact_n)
+    elif n > 0:
+      for i in range(1,n+1):
+        fact_n = fact_n * i
+    print (fact_n)
+
+elif task == 'even_numbers':
+    n = int(input())
+    for i in range (0,n+1):
+        if i % 2 == 0:
+            print (i)
+
+elif task == 'power_sequence':
+    n = int(input())
+    for i in range(0, n):
+        print(2**i)
+
+elif task == 'sum_not_divisible':
+    n = int(input())
+    sum = 0
+    for i in range(1,n):
+        if i%4!=0 and i%5!=0:
+            sum = sum + i
+    print(sum)
+    
+elif task == 'from_k':
+    n = int(input())
+    k = int(input())
+    count = 0
+    for i in range(k,0,-1):
+        str_i = str(i)
+        if "5" not in str_i and "9" not in str_i and i%2!=0:
+            print(str_i[::-1])
+            count = count + 1
+        if count == n:
+                break
+
+elif task == 'string_iter':
+    s = input()
+    slen = len(s)
+    for i in range(slen):
+        if i==0:
+            print(int(s[i])*1)
+        else:
+            print(int(s[i])*int(s[i-1]))
+
+
+
+elif task == 'list_iter':
+    lst = eval(input()) # this will load the list from input
+    for l in lst:
+        print(f'{l} - type: {type(l)}')
+else:
+    print("Invalid")
